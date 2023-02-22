@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Load the orders data from a CSV file or a database table
 df_orders = pd.read_csv('Assessment exercise dataset - orders.csv')
@@ -37,3 +38,12 @@ df_segment['percentage'] = df_segment['breakfast_orders'] / df_orders[df_orders[
 
 # Print the segment data
 print(df_segment)
+
+
+# Create a bar chart showing the percentage of breakfast orders for each user segment
+fig, ax = plt.subplots()
+ax.bar(df_segment.index, df_segment['percentage'])
+ax.set_xlabel('User Segment')
+ax.set_ylabel('% of Breakfast Orders')
+ax.set_title('Breakfast Orders by User Segment')
+plt.show()
